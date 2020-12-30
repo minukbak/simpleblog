@@ -1,6 +1,7 @@
 {
     "name": "simpleblog",
     "version": "0.1.0",
+    "private": true,
     "description": "개인용 블로그",
     "main": "app.js",
     "scripts": {
