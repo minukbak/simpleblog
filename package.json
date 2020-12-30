@@ -1,0 +1,16 @@
+{
+    "name": "simpleblog",
+    "version": "0.1.0",
+    "description": "개인용 블로그",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app"
+    },
+    "author": "MinukBak",
+    "license": "MIT",
+    "dependencies": {
+        "mysql2": "2.2.5",
+        "sequelize": "6.3.5",
+        "sequelize-cli": "6.2.0"
+    }
+}
