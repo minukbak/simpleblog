@@ -51,7 +51,7 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
     background: gray;
 }
 
-.section {
+.article {
     float: right;
     width: 750px;
     height: 100%;
@@ -91,7 +91,7 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
 }
 
 
-.section-wrap {
+.article-wrap {
     padding: 10px;
 }
 
