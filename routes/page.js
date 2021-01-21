@@ -1,6 +1,6 @@
 const express = require('express');
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
-const { Post, User, Hashtag } = require('../models');
+const { Post, User, Title } = require('../models');
 
 const router = express.Router();
 
@@ -10,12 +10,13 @@ router.use((req, res, next) => {
 });
 
 router.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile', { title: '내 정보 - SimpleBlog' });
+  res.render('profile', { title: 'Profile - SimpleBlog' });
 });
 
 router.get('/join', isNotLoggedIn, (req, res) => {
-  res.render('join', { title: '회원가입 - SimpleBlog' });
+  res.render('join', { title: 'join - SimpleBlog' });
 });
+
 
 router.get('/', async (req, res, next) => {
   try {
@@ -36,16 +37,16 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.get('/hashtag', async (req, res, next) => {
-  const query = req.query.hashtag;
+router.get('/title', async (req, res, next) => {
+  const query = req.query.title;
   if (!query) {
     return res.redirect('/');
   }
   try {
-    const hashtag = await Hashtag.findOne({ where: { title: query } });
+    const title = await Title.findOne({ where: { title: query } });
     let posts = [];
-    if (hashtag) {
-      posts = await hashtag.getPosts({ include: [{ model: User }] });
+    if (title) {
+      posts = await title.getPosts({ include: [{ model: User }] });
     }
 
     return res.render('main', {

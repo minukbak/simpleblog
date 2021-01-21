@@ -43,7 +43,7 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
     font-size: 12px;
 }
 
-.nav {
+.section {
     float: left;
     width: 250px;
     height: 100%;
@@ -100,9 +100,11 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
     padding: 10px;
     background: gray;
     overflow: hidden;
-  }
-  #img-preview { max-width: 100%; }
-  #img-label {
+}
+
+#img-preview { max-width: 100%; }
+
+#img-label {
     float: left;
     cursor: pointer;
     border-radius: 4px;
@@ -112,30 +114,31 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
     font-size: 12px;
     height: 37px;
     line-height: 37px;
-  }
-  #img { display: none; }
-  #post { width: 100%; min-height: 72px; }
-  #post-btn {
+
+}
+#img { display: none; }
+#post { width: 100%; min-height: 72px; }
+#post-btn {
     float: right;
     color: white;
     background: black;
     border: none;
-  }
-  .post {
+}
+.post {
     border: 1px solid silver;
     border-radius: 4px;
     padding: 10px;
     position: relative;
     margin-bottom: 10px;
-  }
-  .post-author { display: inline-block; font-weight: bold; margin-right: 10px; }
+}
+.post-author { display: inline-block; font-weight: bold; margin-right: 10px; }
   
-  .post-img { text-align: center; }
-  .post-img img { max-width: 75%; }
+.post-img { text-align: center; }
+.post-img img { max-width: 75%; }
 
 #search-form { text-align: right; }
 
-#hashtag-form { text-align: right; }
+#title-form { text-align: right; }
 
 .user-name { font-weight: bold; font-size: 18px; }
 
