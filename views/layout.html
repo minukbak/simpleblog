@@ -14,11 +14,11 @@
     
     <div class="header">
       {% if user and user.id %}
-      <a id="my-profile" href="/profile" class="btn">내 프로필</a>
-      <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
+      <a id="profile" href="/profile" class="btn">Profile</a>
+      <a id="logout" href="/auth/logout" class="btn">Logout</a>
       {% else %}
-      <button id="login" type="submit" class="btn">로그인</button>
-      <a id="join" href="/join" class="btn">회원가입</a>
+      <a id="login" href="/login" class="btn">Login</a>
+      <a id="register" href="/register" class="btn">Register</a>
       {% endif %}
     </div>
     

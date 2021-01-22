@@ -1,29 +1,11 @@
-<!DOCTYPE html>
-<html>
+{% extends 'layout.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <title>{{title}}</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <meta http-equiv="X-UX-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="/main.css">
-</head>
-
-<body>
-  <div class="container">
-    {% block content %}
-    <div class="form">
-      <form id="main-form">
-        <div class="greet">{{'Simple Blog'}}</div>
-        <a id="big-blue" href="/login" class="btn">Login</a><br>
-        <a id="gray-btn" href="/register" class="btn">Register</a>
-      </form>
-    </div>
-    {% endblock %}
-  </div>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <% block script %>
-  <% endblocd %>
-</body>
-
-</html>
+{% block content %}
+<div class="form">
+  <form id="main-form">
+    <div class="greet">{{'Simple Blog'}}</div>
+    <a id="big-blue" href="/login" class="btn">Login</a><br>
+    <a id="gray-btn" href="/register" class="btn">Register</a>
+  </form>
+</div>
+{% endblock %}
