@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="form">
+  <form id="register-form" action="/auth/register" method="post">
+    <div class="input-group">
+      <label for="email">Email Address</label><br>
+      <input id="email" type="email" name="email">
+    </div>
+    <div class="input-group">
+      <label for="nick">Nickname</label><br>
+      <input id="nick" type="text" name="nick">
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label><br>
+      <input id="password" type="password" name="password">
+    </div>
+    <button id="big-blue" type="submit" class="btn">Register</button>
+  </form>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+  window.onload = () => {
+    if (new URL(location.href).searchParams.get('error')) {
+      alert('이미 존재하는 이메일입니다.');
+    }
+  };
+</script>
+{% endblock %}
