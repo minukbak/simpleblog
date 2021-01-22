@@ -13,8 +13,8 @@ router.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { title: 'Profile - SimpleBlog' });
 });
 
-router.get('/join', isNotLoggedIn, (req, res) => {
-  res.render('join', { title: 'join - SimpleBlog' });
+router.get('/register', isNotLoggedIn, (req, res) => {
+  res.render('register', { title: 'register - SimpleBlog' });
 });
 
 
