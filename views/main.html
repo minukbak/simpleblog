@@ -1,43 +1,49 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="article-wrap">
 
-  <div class="posts">
-    <form id="title-form" action="/title">
+<div class="aside">
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <form id="search-form" action="/title">
       <input type="text" name="title" placeholder="Title">
-      <button class="btn">Search</button>
+      <button id="gray-btn" class="btn">Search</button>
     </form>
-    {% for post in posts %}
-    <div class="post">
-      <input type="hidden" value="{{post.User.id}}" class="post-user-id">
-      <input type="hidden" value="{{post.id}}" class="post-id">
-      <div class="post-author">{{post.User.nick}}</div>
-      <div class="post-content">{{post.content}}</div>
-      {% if post.img %}
-      <div class="post-img"><img src="{{post.img}}" alt="Img"></div>
-      {% endif %}
-    </div>
-    {% endfor %}
   </div>
+
+  {% for post in posts %}
+  <div class="article">
+    <input type="hidden" value="{{post.User.id}}" class="post-user-id">
+    <input type="hidden" value="{{post.id}}" class="post-id">
+    <div class="post-author">{{post.User.nick}}</div>
+    <div class="post-content">{{post.content}}</div>
+    {% if post.img %}
+    <div class="post-img"><img src="{{post.img}}" alt="Img"></div>
+    {% endif %}
+  </div>
+  {% endfor %}
+
   {% if user %}
-  <div>
+  <div class="post-box">
     <form id="post-form" action="/post" method="post" enctype="multipart/form-data">
       <div class="input-group">
         <textarea id="post" name="content" maxlength="140"></textarea>
       </div>
       <div class="img-preview">
         <img id="img-preview" src="" style="display: none;" width="250" alt="Preview">
-        <input id="img-url" type="hidden" name="url">
-      </div>
+        <input id="img-url" tdype="hidden" name="url">
+      </>
       <div>
-        <label id="img-label" for="img">Img</label>
+        <label id="gray-btn" for="img" class="btn">Img</label>
         <input id="img" type="file" accept="image/*">
-        <button id="post-btn" type="submit" class="btn">Upload</button>
+        <button id="blue-btn" type="submit" class="btn">Upload</button>
       </div>
     </form>
   </div>
   {% endif %}
+
 </div>
 {% endblock %}
 
