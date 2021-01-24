@@ -3,69 +3,35 @@
 {% block content %}
 
 <div class="aside">
+  <a>&#149&nbsp<u>카테고리</u></a><br>
+  <a>&nbsp&middot 내용1</a><br>
+  <a>&nbsp&middot 내용2</a><br>
+  <a>&nbsp&middot 내용3</a>
 </div>
 
 <div class="section">
   <div class="section-header">
+    {% if user and user.id %}
+    <a id="blue-btn" href="/post" class="btn">Post</a>
+    {% endif %}
     <form id="search-form" action="/title">
       <input type="text" name="title" placeholder="Title">
       <button id="gray-btn" class="btn">Search</button>
     </form>
   </div>
 
-
   {% for post in posts %}
   <div class="article">
     <input type="hidden" value="{{post.User.id}}" class="post-user-id">
     <input type="hidden" value="{{post.id}}" class="post-id">
-    <div class="post-author">{{post.User.nick}}</div>
+    <div class="post-author">{{post.User.nick}}</div><hr size="1px">
     <div class="post-content">{{post.content}}</div>
     {% if post.img %}
-    <div class="post-img"><img src="{{post.img}}" alt="Img"></div>
+    <div class="post-img"><img src="{{post.img}}" alt="Img"></>
     {% endif %}
   </div>
   {% endfor %}
 
-
-
-  {% if user %}
-  <div class="post-box">
-    <form id="post-form" action="/post" method="post" enctype="multipart/form-data">
-      <div class="input-group">
-        <textarea id="post" name="content" maxlength="140"></textarea>
-      </div>
-      <div class="img-preview">
-        <img id="img-preview" src="" style="display: none;" width="250" alt="Preview">
-        <input id="img-url" tdype="hidden" name="url">
-      </>
-      <div>
-        <label id="gray-btn" for="img" class="btn">Img</label>
-        <input id="img" type="file" accept="image/*">
-        <button id="blue-btn" type="submit" class="btn">Upload</button>
-      </div>
-    </form>
-  </div>
-  {% endif %}
 </div>
 {% endblock %}
 
-{% block script %}
-<script>
-  if (document.getElementById('img')) {
-    document.getElementById('img').addEventListener('change', function (e) {
-      const formData = new FormData();
-      console.log(this, this.files);
-      formData.append('img', this.files[0]);
-      axios.post('/post/img', formData)
-        .then((res) => {
-          document.getElementById('img-url').value = res.data.url;
-          document.getElementById('img-preview').src = res.data.url;
-          document.getElementById('img-preview').style.display = 'inline';
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    });
-  }
-</script>
-{% endblock %}

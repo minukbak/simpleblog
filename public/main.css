@@ -29,7 +29,7 @@ body {
 .header-btn {
   float: right;
   margin: 5px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .main {
@@ -40,13 +40,18 @@ body {
 
 .aside {
   float: left;
-  width: 15%;
-  height: 100%;
+  width: 18%;
+  min-height: 60%;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 40px;
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
 .section {
   float: left;
-  width: 85%;
+  width: 80%;
   height: 100%;
   padding: 10px;
   overflow-y: scroll;
@@ -59,6 +64,9 @@ body {
   width: 100%;
   height:8%;
   min-height: 40px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
 }
 
 .footer {
@@ -76,6 +84,7 @@ body {
   border-radius: 4px;
   border: 1px solid silver;
   padding: 10px;
+  margin-top: 10px;
 }
 
 .form {
@@ -85,7 +94,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 3px solid black;
+  border: 1px solid black;
   border-radius: 30px;
   padding: 10px;
   text-align: center;
@@ -143,28 +152,41 @@ textarea {
   width: 70%;
 }
 
-.post-box {
+.post {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
   border: 1px solid silver;
   border-radius: 4px;
   padding: 10px;
   bottom: 0;
-  position: relative;
   margin-bottom: 10px;
+  margin: 10px;
+  width: 80%;
+}
+
+.post-footer {
+  display: inline-block;
+  width: 100%;
 }
 
 #post-form {
   overflow: hidden;
 }
 
-#post {
+#main-text {
   width: 100%;
-  min-height: 72px;
+  min-height: 300px;
 }
 
 .post-author {
   display: inline-block;
-  font-weight: bold;
-  margin-right: 10px;
+}
+
+.post-content {
+  font-size: 15px;
 }
 
 .post-img {
@@ -209,14 +231,14 @@ textarea {
   margin: 5px;
   margin-left: 10px;
   padding: 2px 12px 4px 12px;
-  background-color: limegreen;
+  background-color: seagreen;
   color:white;
 }
 
 #big-blue {
   line-height: 30px;
   font-size: 16px;
-  background-color: seagreen;
+  background-color: dodgerblue;
   color: white;
   padding: 2px 12px 4px 12px;
 }

@@ -21,6 +21,10 @@ router.get('/register', isNotLoggedIn, (req, res) => {
   res.render('register', { title: 'Register - SimpleBlog' });
 });
 
+router.get('/post', isLoggedIn, (req, res) => {
+  res.render('post', { title: 'Post - SimpleBlog' });
+});
+
 
 router.get('/', async (req, res, next) => {
   try {
