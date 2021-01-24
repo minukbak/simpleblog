@@ -202,10 +202,21 @@ textarea {
   border: 0px;
 }
 
+#home-btn {
+  float: left;
+  font-size: 14px;
+  border-radius: 8px;
+  margin: 5px;
+  margin-left: 10px;
+  padding: 2px 12px 4px 12px;
+  background-color: limegreen;
+  color:white;
+}
+
 #big-blue {
   line-height: 30px;
   font-size: 16px;
-  background-color: dodgerblue;
+  background-color: seagreen;
   color: white;
   padding: 2px 12px 4px 12px;
 }
