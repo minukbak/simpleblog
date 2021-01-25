@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-const { Post, Title } = require('../models');
+const { Post, Category } = require('../models');
 const { isLoggedIn } = require('./middlewares');
 
 const router = express.Router();
@@ -37,20 +37,21 @@ const upload2 = multer();
 router.post('/', isLoggedIn, upload2.none(), async (req, res, next) => {
   try {
     const post = await Post.create({
+      title: req.body.title,
       content: req.body.content,
       img: req.body.url,
       UserId: req.user.id,
     });
-    const titles = req.body.content.match(/#[^\s#]*/g);
-    if (titles) {
+    const categories = req.body.content.match(/#[^\s#]*/g);
+    if (categories) {
       const result = await Promise.all(
-        titles.map(tag => {
-          return Title.findOrCreate({
-            where: { title: tag.slice(1).toLowerCase() },
+        categories.map(category => {
+          return Category.findOrCreate({
+            where: { category: category.slice(1).toLowerCase() },
           })
         }),
       );
-      await post.addTitles(result.map(r => r[0]));
+      await post.addCategories(result.map(r => r[0]));
     }
     res.redirect('/');
   } catch (error) {

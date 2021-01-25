@@ -152,7 +152,7 @@ textarea {
   width: 70%;
 }
 
-.post {
+.postwrite {
   vertical-align: middle;
   display: inline-block;
   position: relative;
@@ -167,12 +167,12 @@ textarea {
   width: 80%;
 }
 
-.post-footer {
+.postwrite-footer {
   display: inline-block;
   width: 100%;
 }
 
-#post-form {
+#postwrite-form {
   overflow: hidden;
 }
 
@@ -181,19 +181,19 @@ textarea {
   min-height: 300px;
 }
 
-.post-title {
+.postwrite-title {
   display: inline-block;
 }
 
-.post-content {
+.postwrite-content {
   font-size: 15px;
 }
 
-.post-img {
+.postwrite-img {
   text-align: center;
 }
 
-.post-img img {
+.postwrite-img img {
   max-width: 75%;
 }
 

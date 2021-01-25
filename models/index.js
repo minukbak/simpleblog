@@ -3,7 +3,7 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config')[env];
 const User = require('./user');
 const Post = require('./post');
-const Title = require('./title');
+const Category = require('./category');
 
 const db = {};
 const sequelize = new Sequelize(
@@ -13,14 +13,14 @@ const sequelize = new Sequelize(
 db.sequelize = sequelize;
 db.User = User;
 db.Post = Post;
-db.Title = Title;
+db.Category = Category;
 
 User.init(sequelize);
 Post.init(sequelize);
-Title.init(sequelize);
+Category.init(sequelize);
 
 User.associate(db);
 Post.associate(db);
-Title.associate(db);
+Category.associate(db);
 
 module.exports = db;

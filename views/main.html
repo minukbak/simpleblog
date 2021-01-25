@@ -12,10 +12,10 @@
 <div class="section">
   <div class="section-header">
     {% if user and user.id %}
-    <a id="blue-btn" href="/post" class="btn">Post</a>
+    <a id="blue-btn" href="/postwrite" class="btn">Post</a>
     {% endif %}
-    <form id="search-form" action="/title">
-      <input type="text" name="title" placeholder="Title">
+    <form id="search-form" action="/category">
+      <input type="text" name="category" placeholder="category">
       <button id="gray-btn" class="btn">Search</button>
     </form>
   </div>
@@ -25,19 +25,23 @@
   <div class="article">
     <input type="hidden" value="{{post.User.id}}" class="post-user-id">
     <input type="hidden" value="{{post.id}}" class="post-id">
-    <div class="post-title">
+    <div class="postwrite-title">
       <a>{{post.User.nick}}</a>
+      {{post.title}}
     </div>
     <hr size="1px">
-    <div class="post-content">
+    <div class="postwrite-content">
       {{post.content}}
     </div>
     
     {% if post.img %}
-    <div class="post-img">
+    <div class="postwrite-img">
       <img src="{{post.img}}" alt="Img">
     </div>
     {% endif %}
+    <div>
+      <button id="gray-btn" class="btn">Delete</button>
+    </div>
   </div>
   {% endfor %}
 </div>

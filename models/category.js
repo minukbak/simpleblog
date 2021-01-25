@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Title extends Sequelize.Model {
+module.exports = class Category extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      title: {
+      category: {
         type: Sequelize.STRING(30),
         allowNull: false,
         unique: true,
@@ -12,8 +12,8 @@ module.exports = class Title extends Sequelize.Model {
       sequelize,
       timestamps: true,
       underscored: false,
-      modelName: 'Title',
-      tableName: 'titles',
+      modelName: 'Category',
+      tableName: 'categories',
       paranoid: false,
       charset: 'utf8mb4',
       collate: 'utf8mb4_general_ci',
@@ -21,6 +21,6 @@ module.exports = class Title extends Sequelize.Model {
   }
 
   static associate(db) {
-    db.Title.belongsToMany(db.Post, { through: 'PostTitle' });
+    db.Category.belongsToMany(db.Post, { through: 'PostCategory' });
   }
 };

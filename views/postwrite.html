@@ -1,17 +1,17 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="post">
-  <form id="post-form" action="/post" method="post" enctype="multipart/form-data">
+<div class="postwrite">
+  <form id="postwrite-form" action="/post" method="post" enctype="multipart/form-data">
     <div class="input-group">
       <label for="Title">Title</label><br>
-      <input id="title" style="width: 100%;" type="text" name="title" maxlength="30" placeholder="아직 사용할 수 없습니다.">
+      <input id="title" style="width: 100%;" type="text" name="title" maxlength="30">
     </div>
     <div class="input-group">
       <label for="Content">Content</label><br>
       <textarea id="main-text" name="content" maxlength="300"></textarea>
     </div>
-    <div class="post-footer">
+    <div class="postwrite-footer">
       <div class="img-preview">
         <img id="img-preview" src="" style="display: none;" width="250" alt="Preview">
         <input id="img-url" tdype="hidden" name="url">

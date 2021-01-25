@@ -1,6 +1,6 @@
 const express = require('express');
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
-const { Post, User, Title } = require('../models');
+const { Post, User, Category } = require('../models');
 
 const router = express.Router();
 
@@ -21,8 +21,8 @@ router.get('/register', isNotLoggedIn, (req, res) => {
   res.render('register', { title: 'Register - SimpleBlog' });
 });
 
-router.get('/post', isLoggedIn, (req, res) => {
-  res.render('post', { title: 'Post - SimpleBlog' });
+router.get('/postwrite', isLoggedIn, (req, res) => {
+  res.render('postwrite', { title: 'PostWrite - SimpleBlog' });
 });
 
 
@@ -45,21 +45,21 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.get('/title', async (req, res, next) => {
-  const query = req.query.title;
+router.get('/category', async (req, res, next) => {
+  const query = req.query.category;
   if (!query) {
     return res.redirect('/');
   }
   try {
-    const title = await Title.findOne({ where: { title: query } });
-    let posts = [];
-    if (title) {
-      posts = await title.getPosts({ include: [{ model: User }] });
+    const category = await Category.findOne({ where: { category: query } });
+    let categories = [];
+    if (category) {
+      categories = await category.getPosts({ include: [{ model: User }] });
     }
 
     return res.render('main', {
       title: `${query} | SimpleBlog`,
-      posts: posts,
+      posts: categories,
     });
   } catch (error) {
     console.error(error);
