@@ -13,6 +13,7 @@
   <div class="container">
     <div class="header">
       <a id="home-btn" href="/" class="btn">Simple Blog</a>
+      <input id="my-id" type="hidden" value="{{user.id}}">
       <div class="right-btn">
         {% if user and user.id %}
         <a id="blue-btn" href="/profile" class="btn">Profile</a>

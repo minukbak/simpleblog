@@ -20,30 +20,52 @@
     </form>
   </div>
 
-  
   {% for post in posts %}
   <div class="article">
     <input type="hidden" value="{{post.User.id}}" class="post-user-id">
     <input type="hidden" value="{{post.id}}" class="post-id">
     <div class="postwrite-title">
-      <a>{{post.User.nick}}</a>
       {{post.title}}
     </div>
     <hr size="1px">
     <div class="postwrite-content">
       {{post.content}}
     </div>
-    
     {% if post.img %}
     <div class="postwrite-img">
       <img src="{{post.img}}" alt="Img">
     </div>
     {% endif %}
-    <div>
-      <button id="gray-btn" class="btn">Delete</button>
-    </div>
+    {% if user and user.id === post.User.id %}
+    <button class="post-delete">Delete</button>
+    {% endif %}  
   </div>
   {% endfor %}
 </div>
 {% endblock %}
 
+{% block script %}
+<script>
+  document.querySelectorAll('.post-delete').forEach(function (tag) {
+    tag.addEventListener('click', function () {
+      const myId = document.querySelector('#my-id');
+      const postId = tag.parentNode.querySelector('.post-id').value;
+      if (myId) {
+        const userId = tag.parentNode.querySelector('.post-user-id').value;
+        if (userId === myId.value) {
+          if (confirm('삭제하시겠습니까?')) {
+            console.log('delete');
+            axios.delete(`/post/${postId}`)
+              .then(() => {
+                location.reload();
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          }
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}
