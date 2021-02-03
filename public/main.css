@@ -22,8 +22,11 @@ body {
 }
 
 .header {
+  border: 1px solid black;
+  border-radius: 4px;
   height: 6%;
   min-height: 35px;
+  margin: 10px;
 }
 
 .right-btn {
@@ -34,7 +37,7 @@ body {
 
 .main {
   width: 100%;
-  height: 88%;
+  height: 84%;
   justify-content: center;
 }
 
@@ -44,7 +47,7 @@ body {
   min-height: 60%;
   padding: 10px;
   margin-left: 10px;
-  margin-top: 40px;
+  margin-top: 10px;
   border: 1px solid black;
   border-radius: 4px;
 }
@@ -70,10 +73,13 @@ body {
 }
 
 .footer {
+  border: 1px solid black;
+  border-radius: 4px;
   height: 6%;
   text-align: center;
   padding: 5px;
   min-height: 30px;
+  margin: 10px;
 }
 
 .profile {
