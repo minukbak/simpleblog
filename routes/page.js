@@ -51,12 +51,15 @@ router.get('/category', async (req, res, next) => {
     return res.redirect('/');
   }
   try {
-    const category = await Category.findOne({ where: { category: query } });
+    const category = await Category.findOne({
+      where: { category: query }
+    });
     let categories = [];
     if (category) {
-      categories = await category.getPosts({ include: [{ model: User }] });
+      categories = await category.getPosts({
+        include: [{ model: User }]
+      });
     }
-
     return res.render('main', {
       title: `${query} | SimpleBlog`,
       posts: categories,
