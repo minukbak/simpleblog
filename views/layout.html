@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a id="home-btn" href="/" class="btn">Simple Blog</a>
+      <input id="my-id" type="hidden" value="{{user.id}}">
+      <div class="right-btn">
+        {% if user and user.id %}
+        <a id="blue-btn" href="/profile" class="btn">Profile</a>
+        <a id="gray-btn" href="/auth/logout" class="btn">Logout</a>
+        {% else %}
+        <a id="blue-btn" href="/login" class="btn">Login</a>
+        <a id="gray-btn" href="/register" class="btn">Register</a>
+        {% endif %}
+      </div>
+    </div>
+    
+    
+    <div class="main">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    <footer class="footer">
+      Simple Blog
+    </footer>
+
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    window.onload = () => {
+      if (new URL(location.href).searchParams.get('loginError')) {
+        alert(new URL(location.href).searchParams.get('loginError'));
+      }
+    };
+  </script>
+  {% block script %}
+  {% endblock %}
+</body>
+
+</html>

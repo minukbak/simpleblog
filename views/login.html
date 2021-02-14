@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="form">
+  <form id="login-form" action="/auth/login" method="post">
+    <div class="input-group">
+      <label for="email">Email Address</label><br>
+      <input id="email" type="email" name="email" required autofocus>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label><br>
+      <input id="password" type="password" name="password" required>
+    </div>
+    <button id="big-blue" type="submit" class="btn">Login</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  window.onload = () => {
+    if (new URL(location.href).searchParams.get('loginError')) {
+      alert(new URL(location.href).searchParams.get('loginError'));
+    }
+  };
+</script>
+{% endblock %}

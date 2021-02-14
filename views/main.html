@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="aside">
+  <a>&#149&nbsp<u>카테고리</u></a><br>
+  <a>&nbsp&middot 내용1</a><br>
+  <a>&nbsp&middot 내용2</a><br>
+  <a>&nbsp&middot 내용3</a>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    {% if user and user.id %}
+    <a id="blue-btn" href="/postwrite" class="btn">Post</a>
+    {% endif %}
+    <form id="search-form" action="/category">
+      <input type="text" name="category" placeholder="category">
+      <button id="gray-btn" class="btn">Search</button>
+    </form>
+  </div>
+
+  {% for post in posts %}
+  <div class="article">
+    <input type="hidden" value="{{post.User.id}}" class="post-user-id">
+    <input type="hidden" value="{{post.id}}" class="post-id">
+    <div class="postwrite-title">
+      {{post.title}}
+      {{post.User.nick}}
+    </div>
+    <hr size="1px">
+    <div class="postwrite-content">
+      {{post.content}}
+    </div>
+    {% if post.img %}
+    <div class="postwrite-img">
+      <img src="{{post.img}}" alt="Img">
+    </div>
+    {% endif %}
+    {% if user and user.id === post.User.id %}
+    <button class="post-delete">Delete</button>
+    {% endif %}  
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  document.querySelectorAll('.post-delete').forEach(function (tag) {
+    tag.addEventListener('click', function () {
+      const myId = document.querySelector('#my-id');
+      const postId = tag.parentNode.querySelector('.post-id').value;
+      if (myId) {
+        const userId = tag.parentNode.querySelector('.post-user-id').value;
+        if (userId === myId.value) {
+          if (confirm('삭제하시겠습니까?')) {
+            console.log('delete');
+            axios.delete(`/post/${postId}`)
+              .then(() => {
+                location.reload();
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          }
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}
