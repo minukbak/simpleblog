@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="profile">
+  <h2>My profile</h2><hr>
+  <h2>박민욱</h2>
+  <h2>{{user.nick}}</h2>
+  
+  <form id="profile-form" action="/user/profile" method="post" >
+    <input type="text" name="nick">
+    <button id="gray-btn" class="btn">닉네임 수정</button>
+  </form>
+</div>
+{% endblock %}

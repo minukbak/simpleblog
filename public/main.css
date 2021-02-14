@@ -1,0 +1,269 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+.header {
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 6%;
+  min-height: 35px;
+  margin: 10px;
+}
+
+.right-btn {
+  float: right;
+  margin: 5px;
+  margin-right: 20px;
+}
+
+.main {
+  width: 100%;
+  height: 84%;
+  justify-content: center;
+}
+
+.aside {
+  float: left;
+  width: 18%;
+  min-height: 60%;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.section {
+  float: left;
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+
+.section::-webkit-scrollbar{ display:none; }
+
+.section-header {
+  width: 100%;
+  height:8%;
+  min-height: 40px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.footer {
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 6%;
+  text-align: center;
+  padding: 5px;
+  min-height: 30px;
+  margin: 10px;
+}
+
+.profile {
+  text-align: center;
+}
+.article {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid silver;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.form {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 10px;
+  text-align: center;
+}
+
+#main-form {
+  width: 250px;
+  height: 200px;
+  margin: 10px;
+}
+
+#register-form {
+  width: 250px;
+  margin: 10px;
+}
+
+#login-form {
+  width: 250px;
+  margin: 10px;
+}
+
+#search-form {
+  float: right;
+  min-width: 230px;
+}
+
+.greet {
+  line-height: 120px;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+textarea {
+  border-radius: 4px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  font-weight: bold;
+  font-size: 22px;
+  width: 32%;
+}
+
+.input-group input {
+  width: 70%;
+}
+
+.postwrite {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  border: 1px solid silver;
+  border-radius: 4px;
+  padding: 10px;
+  bottom: 0;
+  margin-bottom: 10px;
+  margin: 10px;
+  width: 80%;
+}
+
+.postwrite-footer {
+  display: inline-block;
+  width: 100%;
+}
+
+#postwrite-form {
+  overflow: hidden;
+}
+
+#main-text {
+  width: 100%;
+  min-height: 300px;
+}
+
+.postwrite-title {
+  display: inline-block;
+}
+
+.postwrite-content {
+  font-size: 15px;
+}
+
+.postwrite-img {
+  text-align: center;
+}
+
+.postwrite-img img {
+  max-width: 75%;
+}
+
+
+#img {
+  display: none;
+}
+
+#img-preview {
+  max-width: 100%;
+  float: left;
+}
+
+.half {
+  float: left;
+  width: 50%;
+  margin: 10px 0;
+}
+
+.btn {
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 3px;
+  background-color: silver;
+  color: dimgray;
+  border: 0px;
+}
+
+#home-btn {
+  float: left;
+  font-size: 14px;
+  border-radius: 8px;
+  margin: 5px;
+  margin-left: 10px;
+  padding: 2px 12px 4px 12px;
+  background-color: seagreen;
+  color:white;
+}
+
+#big-blue {
+  line-height: 30px;
+  font-size: 16px;
+  background-color: dodgerblue;
+  color: white;
+  padding: 2px 12px 4px 12px;
+}
+
+#blue-btn {
+  background-color: dodgerblue;
+  color: white;
+  padding-bottom: 4px;
+}
+
+#gray-btn {
+  background-color: silver;
+  color: dimgray;
+  padding-bottom: 4px;
+}
+
+.user-name { font-weight: bold; font-size: 18px; }
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}

@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="postwrite">
+  <form id="postwrite-form" action="/post" method="post" enctype="multipart/form-data">
+    <div class="input-group">
+      <label for="Title">Title</label><br>
+      <input id="title" style="width: 100%;" type="text" name="title" maxlength="30">
+    </div>
+    <div class="input-group">
+      <label for="Content">Content</label><br>
+      <textarea id="main-text" name="content" maxlength="300"></textarea>
+    </div>
+    <div class="postwrite-footer">
+      <div class="img-preview">
+        <img id="img-preview" src="" style="display: none;" width="250" alt="Preview">
+        <input id="img-url" tdype="hidden" name="url">
+        <label id="gray-btn" for="img" class="btn">Img</label>
+        <input id="img" type="file" accept="image/*">
+        <button id="blue-btn" style="float:right" type="submit" class="btn">Upload</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  if (document.getElementById('img')) {
+    document.getElementById('img').addEventListener('change', function (e) {
+      const formData = new FormData();
+      console.log(this, this.files);
+      formData.append('img', this.files[0]);
+      axios.post('/post/img', formData)
+        .then((res) => {
+          document.getElementById('img-url').value = res.data.url;
+          document.getElementById('img-preview').src = res.data.url;
+          document.getElementById('img-preview').style.display = 'inline';
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
+  }
+</script>
+{% endblock %}
