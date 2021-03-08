@@ -7,7 +7,7 @@
     "scripts": {
         "start": "nodemon app"
     },
-    "author": "MinukBak",
+    "author": "minukbak",
     "license": "MIT",
     "dependencies": {
         "bcrypt": "5.0.0",
@@ -29,6 +29,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/MinukBak/SimpleBlog.git"
+        "url": "https://github.com/minukbak/simpleblog.git"
     }
 }
