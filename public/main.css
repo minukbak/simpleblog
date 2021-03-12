@@ -183,6 +183,7 @@ textarea {
 
 .postwrite-content {
   font-size: 15px;
+  white-space: pre-line;
 }
 
 .postwrite-img {

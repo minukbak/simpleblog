@@ -11,18 +11,19 @@
       <button id="gray-btn" class="btn">Search</button>
     </form>
   </div>
-
+  
   {% for post in posts %}
   <div class="article">
     <input type="hidden" value="{{post.User.id}}" class="post-user-id">
     <input type="hidden" value="{{post.id}}" class="post-id">
     <div class="postwrite-title">
-      {{post.title}}
+      {{post.title}} -
       {{post.User.nick}}
     </div>
     <hr size="1px">
     <div class="postwrite-content">
       {{post.content}}
+
     </div>
     {% if post.img %}
     <div class="postwrite-img">
@@ -31,7 +32,7 @@
     {% endif %}
     {% if user and user.id === post.User.id %}
     <button class="post-delete">Delete</button>
-    {% endif %}  
+    {% endif %}
   </div>
   {% endfor %}
 </div>
