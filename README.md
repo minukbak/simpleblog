@@ -1,4 +1,4 @@
-# simpleblog
+# simpleblog1
 
 블로그 만들기 프로젝트의 첫 번째 블로그입니다.</br>
 Node.js와 관계형 DB인 MySQL로 제작하였습니다.
